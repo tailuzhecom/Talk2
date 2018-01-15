@@ -14,12 +14,15 @@
       <file leaf-file-name="Server.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Server.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="80" column="36" lean-forward="false" selection-start-line="80" selection-start-column="36" selection-end-line="80" selection-end-column="36" />
+            <state relative-caret-position="400">
+              <caret line="160" column="63" lean-forward="true" selection-start-line="160" selection-start-column="63" selection-end-line="160" selection-end-column="63" />
               <folding>
-                <element signature="e#14#107#0" expanded="true" />
-                <marker date="1515554336603" expanded="true" signature="555:593" ph="select * fro... login" />
-                <marker date="1515554336603" expanded="true" signature="1372:1410" ph="select * fro... login" />
+                <element signature="e#14#114#0" expanded="true" />
+                <marker date="1516005167344" expanded="true" signature="1333:1371" ph="select * fro... login" />
+                <marker date="1516005167344" expanded="true" signature="3626:3690" ph="insert into offline_message... " />
+                <marker date="1516005167344" expanded="true" signature="3948:4007" ph="select conte... chatrecord" />
+                <marker date="1516005167344" expanded="true" signature="4532:4595" ph="select conte... offline_message" />
+                <marker date="1516005167344" expanded="true" signature="5028:5083" ph="DELETE FROM offline_message... " />
               </folding>
             </state>
           </provider>
@@ -49,10 +52,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="63" />
-    <option name="y" value="42" />
-    <option name="width" value="1857" />
-    <option name="height" value="1085" />
+    <option name="x" value="144" />
+    <option name="y" value="24" />
+    <option name="width" value="1203" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -85,12 +88,12 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$USER_HOME$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="configurable.Global.GOPATH.is.expanded" value="true" />
     <property name="configurable.Project.GOPATH.is.expanded" value="true" />
     <property name="configurable.Module.GOPATH.is.expanded" value="false" />
-    <property name="settings.editor.selected.configurable" value="go.sdk" />
+    <property name="settings.editor.selected.configurable" value="com.goide.configuration.GoLibrariesConfigurableProvider" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -138,19 +141,19 @@
     <option name="remove_strategy" value="false" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="63" y="42" width="1857" height="1085" extended-state="1" />
+    <frame x="144" y="24" width="1203" height="1056" extended-state="1" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.08301887" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12822647" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3299389" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33997902" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39918533" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -168,19 +171,22 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Server.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="18" column="4" lean-forward="true" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#14#107#0" expanded="true" />
-            <marker date="1515554336603" expanded="true" signature="555:593" ph="select * fro... login" />
-            <marker date="1515554336603" expanded="true" signature="1372:1410" ph="select * fro... login" />
+            <element signature="e#14#114#0" expanded="true" />
+            <marker date="1516005167344" expanded="true" signature="1333:1371" ph="select * fro... login" />
+            <marker date="1516005167344" expanded="true" signature="3626:3690" ph="insert into offline_message... " />
+            <marker date="1516005167344" expanded="true" signature="3948:4007" ph="select conte... chatrecord" />
+            <marker date="1516005167344" expanded="true" signature="4532:4595" ph="select conte... offline_message" />
+            <marker date="1516005167344" expanded="true" signature="5028:5083" ph="DELETE FROM offline_message... " />
           </folding>
         </state>
       </provider>
@@ -190,28 +196,88 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#14#107#0" expanded="true" />
-            <marker date="1515554336603" expanded="true" signature="555:593" ph="select * fro... login" />
-            <marker date="1515554336603" expanded="true" signature="1372:1410" ph="select * fro... login" />
+            <element signature="e#14#114#0" expanded="true" />
+            <marker date="1516005167344" expanded="true" signature="1333:1371" ph="select * fro... login" />
+            <marker date="1516005167344" expanded="true" signature="3626:3690" ph="insert into offline_message... " />
+            <marker date="1516005167344" expanded="true" signature="3948:4007" ph="select conte... chatrecord" />
+            <marker date="1516005167344" expanded="true" signature="4532:4595" ph="select conte... offline_message" />
+            <marker date="1516005167344" expanded="true" signature="5028:5083" ph="DELETE FROM offline_message... " />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Users/tailuzhecom/golang/src/github.com/go-sql-driver/mysql/utils.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1206">
-          <caret line="78" column="25" lean-forward="true" selection-start-line="78" selection-start-column="25" selection-end-line="78" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Server.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="80" column="36" lean-forward="false" selection-start-line="80" selection-start-column="36" selection-end-line="80" selection-end-column="36" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#14#107#0" expanded="true" />
-            <marker date="1515554336603" expanded="true" signature="555:593" ph="select * fro... login" />
-            <marker date="1515554336603" expanded="true" signature="1372:1410" ph="select * fro... login" />
+            <element signature="e#14#114#0" expanded="true" />
+            <marker date="1516005167344" expanded="true" signature="1333:1371" ph="select * fro... login" />
+            <marker date="1516005167344" expanded="true" signature="3626:3690" ph="insert into offline_message... " />
+            <marker date="1516005167344" expanded="true" signature="3948:4007" ph="select conte... chatrecord" />
+            <marker date="1516005167344" expanded="true" signature="4532:4595" ph="select conte... offline_message" />
+            <marker date="1516005167344" expanded="true" signature="5028:5083" ph="DELETE FROM offline_message... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#14#114#0" expanded="true" />
+            <marker date="1516005167344" expanded="true" signature="1333:1371" ph="select * fro... login" />
+            <marker date="1516005167344" expanded="true" signature="3626:3690" ph="insert into offline_message... " />
+            <marker date="1516005167344" expanded="true" signature="3948:4007" ph="select conte... chatrecord" />
+            <marker date="1516005167344" expanded="true" signature="4532:4595" ph="select conte... offline_message" />
+            <marker date="1516005167344" expanded="true" signature="5028:5083" ph="DELETE FROM offline_message... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="18" column="4" lean-forward="true" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
+          <folding>
+            <element signature="e#14#114#0" expanded="true" />
+            <marker date="1516005167344" expanded="true" signature="1333:1371" ph="select * fro... login" />
+            <marker date="1516005167344" expanded="true" signature="3626:3690" ph="insert into offline_message... " />
+            <marker date="1516005167344" expanded="true" signature="3948:4007" ph="select conte... chatrecord" />
+            <marker date="1516005167344" expanded="true" signature="4532:4595" ph="select conte... offline_message" />
+            <marker date="1516005167344" expanded="true" signature="5028:5083" ph="DELETE FROM offline_message... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#14#114#0" expanded="true" />
+            <marker date="1516005167344" expanded="true" signature="1333:1371" ph="select * fro... login" />
+            <marker date="1516005167344" expanded="true" signature="3626:3690" ph="insert into offline_message... " />
+            <marker date="1516005167344" expanded="true" signature="3948:4007" ph="select conte... chatrecord" />
+            <marker date="1516005167344" expanded="true" signature="4532:4595" ph="select conte... offline_message" />
+            <marker date="1516005167344" expanded="true" signature="5028:5083" ph="DELETE FROM offline_message... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Users/tailuzhecom/golang/src/github.com/go-sql-driver/mysql/utils.go" />
+    <entry file="file://$PROJECT_DIR$/Server.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="160" column="63" lean-forward="true" selection-start-line="160" selection-start-column="63" selection-end-line="160" selection-end-column="63" />
+          <folding>
+            <element signature="e#14#114#0" expanded="true" />
+            <marker date="1516005167344" expanded="true" signature="1333:1371" ph="select * fro... login" />
+            <marker date="1516005167344" expanded="true" signature="3626:3690" ph="insert into offline_message... " />
+            <marker date="1516005167344" expanded="true" signature="3948:4007" ph="select conte... chatrecord" />
+            <marker date="1516005167344" expanded="true" signature="4532:4595" ph="select conte... offline_message" />
+            <marker date="1516005167344" expanded="true" signature="5028:5083" ph="DELETE FROM offline_message... " />
           </folding>
         </state>
       </provider>
