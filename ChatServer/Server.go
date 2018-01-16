@@ -7,6 +7,7 @@ import (
 	"database/sql"
 	_ "github.com/go-sql-driver/mysql"
 	"log"
+	"os"
 )
 
 type MessageBody struct {
@@ -135,6 +136,7 @@ func handleReadConn(conn net.Conn, clientName string)  {
 				stmt.Exec(clientName, messageFromClient[0].To, clientName + ": " + messageFromClient[0].Content)
 				stmt.Close()
 			}
+
 		case "GetChatRecord":   //获取聊天记录
 			log.Println(clientName + " GetChatRecord")
 			var chatRecord string
@@ -148,6 +150,7 @@ func handleReadConn(conn net.Conn, clientName string)  {
 			responseMessages.From = messageFromClient[0].To
 			jsonStr, _ := json.Marshal(&responseMessages)
 			g_clientConns[clientName].Write([]byte(jsonStr))
+
 		case "GetOfflineMessage":   //拉取离线消息
 			//从数据库中获取对方发送给client的消息
 			log.Println(clientName + " :GetOfflineMessage")
@@ -165,7 +168,29 @@ func handleReadConn(conn net.Conn, clientName string)  {
 			//删除已拉取的消息
 			stmt, _ := g_db.Prepare("DELETE FROM offline_message WHERE from_ = ? and to_ = ?")
 			stmt.Exec(messageFromClient[0].To, messageFromClient[0].From)
+
+		case "SendFile":
+			log.Println(clientName + " :SendFile")
+			//发送的文件先保存在服务端
+			 fileBuffer := make([]byte, 2048)
+			 conn.Read(fileBuffer)
+			 fileName := string(fileBuffer)
+			 file, err := os.Create(fileName)
+			 defer file.Close()
+			 if err != nil {
+			 	for {
+					n, _ = conn.Read(fileBuffer)
+					if n == 0 {
+						break
+					}
+					file.Read(fileBuffer)
+				}
+			 }
+			 
+		case "GetFile":
+			//用户从服务端拉取文件
 		}
+
 
 	}
 }

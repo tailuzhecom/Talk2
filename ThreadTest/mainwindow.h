@@ -10,6 +10,7 @@
 #include <QSqlError>
 
 #include "logindialog.h"
+#include "sendfiledialog.h"
 
 namespace Ui {
 class MainWindow;
@@ -30,6 +31,8 @@ private slots:
     void loginDialog_slot(QString userName, QString passwd);
     void on_listWidget_itemClicked(QListWidgetItem *item);
 
+    void on_pushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     WorkThread* t1;
@@ -38,7 +41,7 @@ private:
     LoginDialog* m_loginDialog;
     QMap<QString, QString> m_chatRecord;
     QSqlDatabase database;
-
+    SendFileDialog* m_sendFileDialog;
 };
 
 #endif // MAINWINDOW_H

@@ -29,13 +29,19 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     workthread.cpp \
-    logindialog.cpp
+    logindialog.cpp \
+    sendfiledialog.cpp
 
 HEADERS += \
         mainwindow.h \
     workthread.h \
-    logindialog.h
+    logindialog.h \
+    sendfiledialog.h
 
 FORMS += \
         mainwindow.ui \
-    logindialog.ui
+    logindialog.ui \
+    sendfiledialog.ui
+
+RESOURCES += \
+    src.qrc

@@ -9,7 +9,11 @@
 #include <QMessageBox>
 #include <QListView>
 #include <QJsonParseError>
-
+#include <QTextDocumentFragment>
+#include <QImage>
+#include <QImageReader>
+#include <QTextDocument>
+#include <QFile>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -32,7 +36,27 @@ MainWindow::MainWindow(QWidget *parent) :
     item2->setText("curry");
     ui->listWidget->addItem(item1);
     ui->listWidget->addItem(item2);
+//    QImage image = QImageReader("qrc:/image/edittest.png").read();
+//    QTextDocument* textDocument = ui->Content_textEdit->document();
+//    textDocument->addResource(QTextDocument::ImageResource, QUrl("qrc:/image/edittest.png"), QVariant(image));
+//    QTextCursor cursor = ui->Content_textEdit->textCursor();
+//    QTextImageFormat imageFormat;
+//    imageFormat.setWidth(image.width());
+//    imageFormat.setHeight(image.height());
+//    imageFormat.setName("qrc:/image/edittest.png");
+//    cursor.insertImage(imageFormat);
+    QFile img(":/image/edittest.png");
+    qDebug() << img.size() << endl;
+    ui->Content_textEdit->append("<img src=qrc:/image/edittest.png>");
+    ui->Content_textEdit->append("Hello");
+    QTextImageFormat imageFormat;
+    imageFormat.setName("qrc:/image/edittest.png");
+    QTextCursor cursor = ui->Content_textEdit->textCursor();
+    cursor.insertImage(imageFormat);
 
+    m_sendFileDialog = new SendFileDialog(this);
+    m_sendFileDialog->setSocket(m_socket);
+    m_sendFileDialog->hide();
 }
 
 void MainWindow::initDatabase()
@@ -159,17 +183,25 @@ void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
     QString talkName = item->text();
     ui->Content_textEdit->clear();
     ui->to_lineEdit->setText(talkName);
+    QJsonObject sendObj;
+    sendObj.insert("Type", "SendFile");
+    sendObj.insert("From", m_userName);
+    sendObj.insert("To", talkName);
+    sendObj.insert("Content", "");
+    QJsonDocument sendJsonDoc;
+    sendJsonDoc.setObject(sendObj);
+
     if(m_chatRecord.count(talkName) == 0) {
-//  Get chatrecord from server
-//        QJsonObject obj;
-//        obj.insert("Type", "GetChatRecord");
-//        obj.insert("From", m_userName);
-//        obj.insert("To", item->text());
-//        obj.insert("Content", "");
-//        QJsonArray array;
-//        array.append(obj);
-//        QJsonDocument jsonDoc(array);
-//        m_socket->write(jsonDoc.toJson());
+        //  Get chatrecord from server
+        //        QJsonObject obj;
+        //        obj.insert("Type", "GetChatRecord");
+        //        obj.insert("From", m_userName);
+        //        obj.insert("To", item->text());
+        //        obj.insert("Content", "");
+        //        QJsonArray array;
+        //        array.append(obj);
+        //        QJsonDocument jsonDoc(array);
+        //        m_socket->write(jsonDoc.toJson());
         QString content = "";
         QSqlQuery sql_query;
         QString query_sql = "select content from chatrecord where from_ = ? and to_ = ?";
@@ -179,7 +211,7 @@ void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
         if(sql_query.exec()) {
             qDebug() << "Select success" << endl;
             while(sql_query.next()) {
-               content += sql_query.value(0).toString() + "\n";
+                content += sql_query.value(0).toString() + "\n";
             }
             m_chatRecord[talkName] = content;
             ui->Content_textEdit->setPlainText(content);
@@ -204,4 +236,9 @@ void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
         ui->Content_textEdit->setPlainText(m_chatRecord[talkName]);
         ui->Content_textEdit->moveCursor(QTextCursor::End);
     }
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    m_sendFileDialog->show();
 }
