@@ -46,6 +46,7 @@ func main()  {
 		return
 	}
 	fmt.Println("ChatServer start...")
+	go fileServerThread()
 	for {
 		conn, err := listenServer.Accept()
 		if err != nil {
@@ -110,91 +111,108 @@ func handleReadConn(conn net.Conn, clientName string)  {
 			return
 		}
 		//解析用户json
-		messageFromClient := []MessageBody{}
+		messageFromClient := MessageBody{}
 		json.Unmarshal(buffer[0:n], &messageFromClient)
 		fmt.Println(string(buffer[0:n]))
 		fmt.Println("Json from client", messageFromClient)
-		switch messageFromClient[0].Type {
+		switch messageFromClient.Type {
 		case "SendMessage":
 			log.Println(clientName + " SendMessage")
-			if g_clientConns[messageFromClient[0].To] != nil {    //如果用户在线
+			if g_clientConns[messageFromClient.To] != nil {    //如果用户在线
 				responseMessages := ResponseMessage{}
 				responseMessages.Type = "203"   //发送消息
-				responseMessages.Content = clientName + ": " + messageFromClient[0].Content
+				responseMessages.Content = clientName + ": " + messageFromClient.Content
 				responseMessages.From = clientName
 				jsonStr, _ := json.Marshal(&responseMessages)
-				g_clientConns[messageFromClient[0].To].Write([]byte(jsonStr))
+				g_clientConns[messageFromClient.To].Write([]byte(jsonStr))
 			} else {
 				responseMessages := ResponseMessage{}
 				responseMessages.Type = "203"   //发送消息
 				responseMessages.Content = "系统： 该用户暂时不在线"
-				responseMessages.From = messageFromClient[0].To
+				responseMessages.From = messageFromClient.To
 				jsonStr, _ := json.Marshal(&responseMessages)
 				g_clientConns[clientName].Write([]byte(jsonStr))
 				//将离线消息存储到数据库
 				stmt, _ := g_db.Prepare(`insert into offline_message(from_, to_, content) values(?, ?, ?)`)
-				stmt.Exec(clientName, messageFromClient[0].To, clientName + ": " + messageFromClient[0].Content)
+				stmt.Exec(clientName, messageFromClient.To, clientName + ": " + messageFromClient.Content)
 				stmt.Close()
 			}
 
 		case "GetChatRecord":   //获取聊天记录
 			log.Println(clientName + " GetChatRecord")
 			var chatRecord string
-			rows, _ := g_db.Query("select content_ from chatrecord where from_ = ? and to_ = ?", messageFromClient[0].From, messageFromClient[0].To)
+			rows, _ := g_db.Query("select content_ from chatrecord where from_ = ? and to_ = ?", messageFromClient.From, messageFromClient.To)
 			if rows.Next() {
 				rows.Scan(&chatRecord)
 			}
 			responseMessages := ResponseMessage{}
 			responseMessages.Type = "202"  //聊天记录
 			responseMessages.Content = chatRecord
-			responseMessages.From = messageFromClient[0].To
+			responseMessages.From = messageFromClient.To
 			jsonStr, _ := json.Marshal(&responseMessages)
 			g_clientConns[clientName].Write([]byte(jsonStr))
 
 		case "GetOfflineMessage":   //拉取离线消息
 			//从数据库中获取对方发送给client的消息
 			log.Println(clientName + " :GetOfflineMessage")
-			rows, _ := g_db.Query("select content from offline_message where from_ = ? and to_ = ?",  messageFromClient[0].To, clientName)
+			rows, _ := g_db.Query("select content from offline_message where from_ = ? and to_ = ?",  messageFromClient.To, clientName)
 			var content string
 			for rows.Next() {
 				rows.Scan(&content)
 				responseMessages := ResponseMessage{}
 				responseMessages.Type = "203"  //聊天记录
 				responseMessages.Content = content
-				responseMessages.From = messageFromClient[0].To
+				responseMessages.From = messageFromClient.To
 				jsonStr, _ := json.Marshal(&responseMessages)
 				g_clientConns[clientName].Write([]byte(jsonStr))
 			}
 			//删除已拉取的消息
 			stmt, _ := g_db.Prepare("DELETE FROM offline_message WHERE from_ = ? and to_ = ?")
-			stmt.Exec(messageFromClient[0].To, messageFromClient[0].From)
-
-		case "SendFile":
-			log.Println(clientName + " :SendFile")
-			//发送的文件先保存在服务端
-			 fileBuffer := make([]byte, 2048)
-			 conn.Read(fileBuffer)
-			 fileName := string(fileBuffer)
-			 file, err := os.Create(fileName)
-			 defer file.Close()
-			 if err != nil {
-			 	for {
-					n, _ = conn.Read(fileBuffer)
-					if n == 0 {
-						break
-					}
-					file.Read(fileBuffer)
-				}
-			 }
-			 
-		case "GetFile":
-			//用户从服务端拉取文件
+			stmt.Exec(messageFromClient.To, messageFromClient.From)
 		}
-
-
 	}
 }
 
-func handleListenConn()  {
+func fileServerThread()  {
+	fileServer, err := net.Listen("tcp", "127.0.0.1:10086")
+	if err != nil {
+		log.Println("FileServer start failed.")
+	}
+	fmt.Println("FileServer start...")
+	for {
+		conn, err := fileServer.Accept()
+		if err != nil {
+			log.Println(err)
+			continue
+		}
+		go fileHandleConn(conn)
+	}
+}
 
+func fileHandleConn(conn net.Conn)  {
+	fmt.Println("Dealing file...")
+	fileBuffer := make([]byte, 4096)
+	n, _ := conn.Read(fileBuffer)
+	fmt.Println("jsonStr: ", string(fileBuffer[0:n]))
+	messageBody := MessageBody{}
+	json.Unmarshal(fileBuffer[0:n], &messageBody)
+	fmt.Println(messageBody)
+	file, err := os.Create(messageBody.Content)
+	if err == nil {
+		for {
+			n, _ := conn.Read(fileBuffer)
+			fmt.Println(n)
+			file.Write(fileBuffer[0:n])
+			if n < 2048 {
+				break
+			}
+
+		}
+	} else {
+		fmt.Println(err)
+		fmt.Println("Create error")
+	}
+	file.Close()
+	conn.Close()
+	fmt.Println("Send file finish!")
 }

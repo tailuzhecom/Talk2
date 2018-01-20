@@ -1,0 +1,3 @@
+/home/tailuzhecom/CLionProjects/Talk2Server/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/tailuzhecom/CLionProjects/Talk2Server/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/tailuzhecom/CLionProjects/Talk2Server/cmake-build-debug/CMakeFiles/Talk2Server.dir

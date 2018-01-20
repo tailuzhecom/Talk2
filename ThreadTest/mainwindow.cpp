@@ -23,7 +23,7 @@ MainWindow::MainWindow(QWidget *parent) :
     initDatabase();
     this->setWindowTitle("Chat");
     m_socket = new QTcpSocket;
-    m_socket->connectToHost("127.0.0.1", 9999);
+    m_socket->connectToHost("127.0.0.1", 10021);
     m_loginDialog = new LoginDialog;
     this->hide();
     m_loginDialog->show();
@@ -36,15 +36,7 @@ MainWindow::MainWindow(QWidget *parent) :
     item2->setText("curry");
     ui->listWidget->addItem(item1);
     ui->listWidget->addItem(item2);
-//    QImage image = QImageReader("qrc:/image/edittest.png").read();
-//    QTextDocument* textDocument = ui->Content_textEdit->document();
-//    textDocument->addResource(QTextDocument::ImageResource, QUrl("qrc:/image/edittest.png"), QVariant(image));
-//    QTextCursor cursor = ui->Content_textEdit->textCursor();
-//    QTextImageFormat imageFormat;
-//    imageFormat.setWidth(image.width());
-//    imageFormat.setHeight(image.height());
-//    imageFormat.setName("qrc:/image/edittest.png");
-//    cursor.insertImage(imageFormat);
+
     QFile img(":/image/edittest.png");
     qDebug() << img.size() << endl;
     ui->Content_textEdit->append("<img src=qrc:/image/edittest.png>");
@@ -147,6 +139,10 @@ void MainWindow::handleRead()
             qDebug() << "Insert success" << endl;
         }
     }
+    else if(type == "204") {   //Send file
+        qDebug() << "Start transfering file" << endl;
+        m_sendFileDialog->send();
+    }
 }
 
 void MainWindow::on_send_pushButton_clicked()
@@ -159,9 +155,8 @@ void MainWindow::on_send_pushButton_clicked()
     QString content = ui->message_lineEdit->text();
     obj.insert("To", to);
     obj.insert("Content", content);
-    QJsonArray array;
-    array.append(obj);
-    QJsonDocument jsonDoc(array);
+    QJsonDocument jsonDoc;
+    jsonDoc.setObject(obj);
     qDebug() << jsonDoc.toJson() << endl;
     m_socket->write(jsonDoc.toJson());
 }
@@ -170,11 +165,11 @@ void MainWindow::loginDialog_slot(QString userName, QString passwd)
 {
     m_userName = userName;
     QJsonObject obj;
+    obj.insert("Type", "Login");  //Type 0 : login
     obj.insert("UserName", userName);
     obj.insert("Passwd", passwd);
-    QJsonArray array;
-    array.append(obj);
-    QJsonDocument jsonDoc(array);
+    QJsonDocument jsonDoc;
+    jsonDoc.setObject(obj);
     m_socket->write(jsonDoc.toJson());
 }
 
@@ -183,25 +178,14 @@ void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
     QString talkName = item->text();
     ui->Content_textEdit->clear();
     ui->to_lineEdit->setText(talkName);
+    //Update SendFile json
     QJsonObject sendObj;
     sendObj.insert("Type", "SendFile");
     sendObj.insert("From", m_userName);
     sendObj.insert("To", talkName);
-    sendObj.insert("Content", "");
-    QJsonDocument sendJsonDoc;
-    sendJsonDoc.setObject(sendObj);
+    m_sendFileDialog->setJsonObject(sendObj);
 
     if(m_chatRecord.count(talkName) == 0) {
-        //  Get chatrecord from server
-        //        QJsonObject obj;
-        //        obj.insert("Type", "GetChatRecord");
-        //        obj.insert("From", m_userName);
-        //        obj.insert("To", item->text());
-        //        obj.insert("Content", "");
-        //        QJsonArray array;
-        //        array.append(obj);
-        //        QJsonDocument jsonDoc(array);
-        //        m_socket->write(jsonDoc.toJson());
         QString content = "";
         QSqlQuery sql_query;
         QString query_sql = "select content from chatrecord where from_ = ? and to_ = ?";
@@ -227,9 +211,8 @@ void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
         obj.insert("From", m_userName);
         obj.insert("To", item->text());
         obj.insert("Content", "");
-        QJsonArray array;
-        array.append(obj);
-        QJsonDocument jsonDoc(array);
+        QJsonDocument jsonDoc;
+        jsonDoc.setObject(obj);
         m_socket->write(jsonDoc.toJson());
     }
     else {    //Have inited the chat record

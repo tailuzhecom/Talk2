@@ -20,19 +20,19 @@ class SendFileDialog : public QDialog
 public:
     explicit SendFileDialog(QWidget *parent = 0);
     void setSocket(QTcpSocket* socket);
-    void QJsonObject(const QJsonObject& obj);
+    void setJsonObject(const QJsonObject& obj);
+    void send();
     ~SendFileDialog();
 
 private slots:
-    void send();  //传送文件头信息
-    void goOnSend(qint64);  //传送文件内容
+    void sendRequestMessage(); //传送文件头信息
     void on_open_pushButton_clicked();
     void on_open_pushButton_2_clicked();
 
 private:
     Ui::SendFileDialog *ui;
 
-    QTcpSocket *tcpClient;
+    QTcpSocket* tcpClient;
     QFile *localFile;
     QString fileName;  //文件名
 

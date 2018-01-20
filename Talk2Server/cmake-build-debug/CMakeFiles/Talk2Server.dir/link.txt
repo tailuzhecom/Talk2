@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/Talk2Server.dir/main.cpp.o CMakeFiles/Talk2Server.dir/DB.cpp.o  -o Talk2Server -lmysqlclient -lpthread 
