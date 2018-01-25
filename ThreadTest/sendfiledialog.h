@@ -26,13 +26,14 @@ public:
 
 private slots:
     void sendRequestMessage(); //传送文件头信息
+    void readHandler();
     void on_open_pushButton_clicked();
     void on_open_pushButton_2_clicked();
 
 private:
     Ui::SendFileDialog *ui;
 
-    QTcpSocket* tcpClient;
+    QTcpSocket tcpClient;
     QFile *localFile;
     QString fileName;  //文件名
 

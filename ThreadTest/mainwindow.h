@@ -23,6 +23,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     void initDatabase();
+    void initFriendsList();
     ~MainWindow();
 
 private slots:
@@ -30,8 +31,11 @@ private slots:
     void on_send_pushButton_clicked();
     void loginDialog_slot(QString userName, QString passwd);
     void on_listWidget_itemClicked(QListWidgetItem *item);
-
     void on_pushButton_clicked();
+
+    void on_add_pushButton_clicked();
+
+    void on_delete_pushButton_clicked();
 
 private:
     Ui::MainWindow *ui;

@@ -11,11 +11,12 @@ SendFileDialog::SendFileDialog(QWidget *parent) :
     sendTimes = 0;
     ui->progressBar->setValue(0);
     this->setWindowTitle(tr("Send file"));
+    connect(&tcpClient, SIGNAL(readyRead()), this, SLOT(readHandler()));
 }
 
 void SendFileDialog::setSocket(QTcpSocket *socket)
 {
-    tcpClient = socket;
+    //tcpClient = socket;
 }
 
 void SendFileDialog::setJsonObject(const QJsonObject& obj)
@@ -32,7 +33,7 @@ void SendFileDialog::send()
 {
     while(true) {
         outBlock = localFile->read(qMin(byteToWrite, loadSize));
-        tcpClient->write(outBlock);
+        tcpClient.write(outBlock);
         byteToWrite -= outBlock.size();  //剩余数据大小
         qDebug() << outBlock.size() << endl;
         ui->progressBar->setMaximum(totalSize);
@@ -58,11 +59,18 @@ void SendFileDialog::sendRequestMessage()
     m_jsonObj.insert("Content", currentFileName);
     m_jsonObj.insert("Type", "SendFile");
     jsonDoc.setObject(m_jsonObj);
-    tcpClient->write(jsonDoc.toJson());
+    tcpClient.write(jsonDoc.toJson());
     qDebug() << jsonDoc.toJson() << endl;
     ui->sendStatus_label->show();
     ui->progressBar->setMaximum(totalSize);
     ui->progressBar->setValue(totalSize - byteToWrite);
+}
+
+void SendFileDialog::readHandler()
+{
+//    QByteArray message = tcpClient.readAll();
+//    qDebug() << message << endl;
+    send();
 }
 
 
@@ -85,7 +93,9 @@ void SendFileDialog::on_open_pushButton_clicked()
 
 void SendFileDialog::on_open_pushButton_2_clicked()
 {
-
+    tcpClient.disconnectFromHost();
+    tcpClient.connectToHost("127.0.0.1", 10025);
     sendRequestMessage();
+    //send();
     ui->sendStatus_label->setText(tr("正在发送文件 %1").arg(fileName));
 }

@@ -30,12 +30,6 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(m_socket, SIGNAL(readyRead()), this, SLOT(handleRead()));
     connect(m_loginDialog, SIGNAL(sendLoginMessage(QString,QString)), this, SLOT(loginDialog_slot(QString,QString)));
     m_socket->write(m_userName.toLatin1());
-    QListWidgetItem* item1 = new QListWidgetItem;
-    item1->setText("kd");
-    QListWidgetItem* item2 = new QListWidgetItem;
-    item2->setText("curry");
-    ui->listWidget->addItem(item1);
-    ui->listWidget->addItem(item2);
 
     QFile img(":/image/edittest.png");
     qDebug() << img.size() << endl;
@@ -81,12 +75,23 @@ void MainWindow::initDatabase()
 
 }
 
+void MainWindow::initFriendsList()
+{
+    QJsonObject obj;
+    obj.insert("Type", "GetFriendsList");
+    obj.insert("From", m_userName);
+    QJsonDocument doc;
+    doc.setObject(obj);
+    m_socket->write(doc.toJson());
+}
+
 MainWindow::~MainWindow()
 {
     database.close();
     delete ui;
 }
 
+//Handle the message from server
 void MainWindow::handleRead()
 {
     QByteArray message = m_socket->readAll();
@@ -106,13 +111,17 @@ void MainWindow::handleRead()
 
     QJsonObject obj = jsonDoc.object();
     QString type = obj.value("Type").toString();
-    QString content = obj.value("Content").toString();
-    QString from = obj.value("From").toString();
+    QString content, from;
+    if(obj.contains("Content"))
+        content = obj.value("Content").toString();
+    if(obj.contains("From"))
+        from = obj.value("From").toString();
 
     if(type == "201") {  //Login success
         QMessageBox::information(this, "information", "Login success");
         m_loginDialog->hide();
         this->show();
+        initFriendsList();
     }
     else if(type == "404") {
         QMessageBox::warning(this, "Error", "Username or password is not correct.");
@@ -143,8 +152,33 @@ void MainWindow::handleRead()
         qDebug() << "Start transfering file" << endl;
         m_sendFileDialog->send();
     }
+    else if(type == "205") {
+        if(obj.contains("FriendsList")) {
+            QJsonValue value = obj.value("FriendsList");
+            if(value.isArray()) {
+                QJsonArray array = value.toArray();
+                int nSize = array.size();
+                for(int i = 0; i < nSize; i++) {
+                    QJsonValue nameValue = array.at(i);
+                    QListWidgetItem* item = new QListWidgetItem;
+                    item->setText(nameValue.toString());
+                    ui->listWidget->addItem(item);
+                }
+            }
+        }
+    }
+    else if(type == "206") {    //
+        QMessageBox::information(this, "Message", "Add friend success!");
+        QListWidgetItem* item = new QListWidgetItem;
+        item->setText(content);
+        ui->listWidget->addItem(item);
+    }
+    else if(type == "207") {
+        QMessageBox::information(this, "Message", "Delete friend success");
+    }
 }
 
+//Send button slot
 void MainWindow::on_send_pushButton_clicked()
 {
     qDebug() << "Click send button" << endl;
@@ -161,6 +195,7 @@ void MainWindow::on_send_pushButton_clicked()
     m_socket->write(jsonDoc.toJson());
 }
 
+//Receive data from login dialog
 void MainWindow::loginDialog_slot(QString userName, QString passwd)
 {
     m_userName = userName;
@@ -173,6 +208,7 @@ void MainWindow::loginDialog_slot(QString userName, QString passwd)
     m_socket->write(jsonDoc.toJson());
 }
 
+//FriendList
 void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
 {
     QString talkName = item->text();
@@ -221,7 +257,42 @@ void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
     }
 }
 
+//SendFile button slot
 void MainWindow::on_pushButton_clicked()
 {
     m_sendFileDialog->show();
+}
+
+//Add button slot
+void MainWindow::on_add_pushButton_clicked()
+{
+    QJsonObject obj;
+    obj.insert("Type", "AddFriend");
+    obj.insert("From", m_userName);
+    QString friend_name = QInputDialog::getText(this, "Add", "Enter friend's name: ");
+    obj.insert("To", friend_name);
+    QJsonDocument doc;
+    doc.setObject(obj);
+    m_socket->write(doc.toJson());
+}
+
+//Delete button slot
+void MainWindow::on_delete_pushButton_clicked()
+{
+    if(ui->listWidget->currentItem()) {
+        QJsonObject obj;
+        obj.insert("Type", "DeleteFriend");
+        obj.insert("From", m_userName);
+        obj.insert("To", ui->listWidget->currentItem()->data(0).toString());
+        QJsonDocument doc;
+        doc.setObject(obj);
+
+        ui->listWidget->takeItem(ui->listWidget->currentRow());
+        //ui->listWidget->update();
+
+        m_socket->write(doc.toJson());
+    }
+    else {
+        QMessageBox::information(this, "error", "No selected friend!");
+    }
 }
