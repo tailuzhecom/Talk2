@@ -11,7 +11,7 @@ LoginDialog::LoginDialog(QWidget *parent) :
 
 LoginDialog::~LoginDialog()
 {
-    delete ui;
+    delete ui; //
 }
 
 void LoginDialog::on_pushButton_clicked()

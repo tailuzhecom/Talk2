@@ -4,8 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/tailuzhecom/CLionProjects/Talk2Server/DB.cpp" "/home/tailuzhecom/CLionProjects/Talk2Server/cmake-build-debug/CMakeFiles/Talk2Server.dir/DB.cpp.o"
-  "/home/tailuzhecom/CLionProjects/Talk2Server/main.cpp" "/home/tailuzhecom/CLionProjects/Talk2Server/cmake-build-debug/CMakeFiles/Talk2Server.dir/main.cpp.o"
+  "/home/tailuzhecom/下载/Talk2/Talk2Server/DB.cpp" "/home/tailuzhecom/下载/Talk2/Talk2Server/cmake-build-debug/CMakeFiles/Talk2Server.dir/DB.cpp.o"
+  "/home/tailuzhecom/下载/Talk2/Talk2Server/LoginSvr.cpp" "/home/tailuzhecom/下载/Talk2/Talk2Server/cmake-build-debug/CMakeFiles/Talk2Server.dir/LoginSvr.cpp.o"
+  "/home/tailuzhecom/下载/Talk2/Talk2Server/main.cpp" "/home/tailuzhecom/下载/Talk2/Talk2Server/cmake-build-debug/CMakeFiles/Talk2Server.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

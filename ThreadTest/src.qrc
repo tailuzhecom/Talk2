@@ -1,5 +1,12 @@
 <RCC>
     <qresource prefix="/">
         <file>image/edittest.png</file>
+        <file>image/toolbar/smile.png</file>
+        <file>image/toolbar/font.png</file>
+        <file>image/toolbar/pic.png</file>
+        <file>image/contacts_photo/normal.png</file>
+        <file>image/talk_windows/send.png</file>
+        <file>image/talk_windows/add_friend.png</file>
+        <file>image/talk_windows/delete_friend.png</file>
     </qresource>
 </RCC>

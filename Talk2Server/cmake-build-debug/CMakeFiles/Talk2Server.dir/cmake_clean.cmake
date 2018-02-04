@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Talk2Server.dir/main.cpp.o"
   "CMakeFiles/Talk2Server.dir/DB.cpp.o"
+  "CMakeFiles/Talk2Server.dir/LoginSvr.cpp.o"
   "Talk2Server.pdb"
   "Talk2Server"
 )

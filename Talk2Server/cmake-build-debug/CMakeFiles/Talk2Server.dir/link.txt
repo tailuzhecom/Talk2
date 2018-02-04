@@ -1,1 +1,1 @@
-/usr/bin/c++  -g   CMakeFiles/Talk2Server.dir/main.cpp.o CMakeFiles/Talk2Server.dir/DB.cpp.o  -o Talk2Server -lmysqlclient -lpthread 
+/usr/bin/c++  -g   CMakeFiles/Talk2Server.dir/main.cpp.o CMakeFiles/Talk2Server.dir/DB.cpp.o CMakeFiles/Talk2Server.dir/LoginSvr.cpp.o  -o Talk2Server -lmysqlclient -lmuduo_net -lmuduo_base -lpthread 

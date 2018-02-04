@@ -13,129 +13,153 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color:rgb(171, 171, 171);
+border-color: rgb(255, 186, 24);
+QPushButton {
+	background-color: rgb(223, 223, 223);
+}
+
+QPushButton:hover{ 	
+	
+	background-color: rgb(255, 255, 255);
+}</string>
+  </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QTextEdit" name="Content_textEdit">
-    <property name="geometry">
-     <rect>
-      <x>270</x>
-      <y>20</y>
-      <width>501</width>
-      <height>261</height>
-     </rect>
-    </property>
-    <property name="readOnly">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="message_lineEdit">
-    <property name="geometry">
-     <rect>
-      <x>270</x>
-      <y>330</y>
-      <width>381</width>
-      <height>25</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="send_pushButton">
-    <property name="geometry">
-     <rect>
-      <x>680</x>
-      <y>330</y>
-      <width>89</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>send</string>
-    </property>
-   </widget>
-   <widget class="QWidget" name="layoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>270</x>
-      <y>370</y>
-      <width>167</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string>To:</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="to_lineEdit">
-       <property name="readOnly">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
    <widget class="Line" name="line">
     <property name="geometry">
      <rect>
-      <x>250</x>
+      <x>272</x>
       <y>10</y>
-      <width>20</width>
-      <height>401</height>
+      <width>16</width>
+      <height>262</height>
      </rect>
     </property>
     <property name="orientation">
      <enum>Qt::Vertical</enum>
     </property>
    </widget>
-   <widget class="QListWidget" name="listWidget">
+   <widget class="QSplitter" name="splitter">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>20</y>
-      <width>231</width>
-      <height>351</height>
+      <y>10</y>
+      <width>256</width>
+      <height>220</height>
      </rect>
     </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+    <widget class="QListWidget" name="listWidget">
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:rgb(255, 255, 255)</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="">
+     <layout class="QHBoxLayout" name="horizontalLayout_4">
+      <item>
+       <widget class="QPushButton" name="add_pushButton">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+	background-color: rgb(223, 223, 223);
+}
+
+QPushButton:hover{ 	
+	
+	background-color: rgb(255, 255, 255);
+}</string>
+        </property>
+        <property name="text">
+         <string>Add</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>58</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="delete_pushButton">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+	background-color: rgb(223, 223, 223);
+}
+
+QPushButton:hover{ 	
+	
+	background-color: rgb(255, 255, 255);
+}</string>
+        </property>
+        <property name="text">
+         <string>Delete</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>290</y>
-      <width>80</width>
-      <height>26</height>
+      <x>283</x>
+      <y>242</y>
+      <width>152</width>
+      <height>28</height>
      </rect>
     </property>
-    <property name="text">
-     <string>send file</string>
-    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QLineEdit" name="message_lineEdit">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="send_pushButton">
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	background-color: rgb(223, 223, 223);
+}
+
+QPushButton:hover{ 	
+	
+	background-color: rgb(255, 255, 255);
+}</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
-   <widget class="QPushButton" name="add_pushButton">
+   <widget class="QTextBrowser" name="textBrowser">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>380</y>
-      <width>80</width>
-      <height>26</height>
+      <x>283</x>
+      <y>12</y>
+      <width>256</width>
+      <height>192</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Add</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="delete_pushButton">
-    <property name="geometry">
-     <rect>
-      <x>160</x>
-      <y>380</y>
-      <width>80</width>
-      <height>26</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Delete</string>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
     </property>
    </widget>
   </widget>
@@ -158,8 +182,43 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="emoj">
+   <property name="icon">
+    <iconset resource="src.qrc">
+     <normaloff>:/image/toolbar/smile.png</normaloff>:/image/toolbar/smile.png</iconset>
+   </property>
+   <property name="text">
+    <string>emoj</string>
+   </property>
+   <property name="toolTip">
+    <string>send emoj</string>
+   </property>
+  </action>
+  <action name="actionFont">
+   <property name="icon">
+    <iconset resource="src.qrc">
+     <normaloff>:/image/toolbar/font.png</normaloff>:/image/toolbar/font.png</iconset>
+   </property>
+   <property name="text">
+    <string>font</string>
+   </property>
+   <property name="toolTip">
+    <string>modify font</string>
+   </property>
+  </action>
+  <action name="actionSend_pic">
+   <property name="icon">
+    <iconset resource="src.qrc">
+     <normaloff>:/image/toolbar/pic.png</normaloff>:/image/toolbar/pic.png</iconset>
+   </property>
+   <property name="text">
+    <string>send_pic</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="src.qrc"/>
+ </resources>
  <connections/>
 </ui>

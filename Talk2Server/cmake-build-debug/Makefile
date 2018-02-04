@@ -48,10 +48,10 @@ RM = /home/tailuzhecom/下载/clion-2017.2.2/bin/cmake/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/tailuzhecom/CLionProjects/Talk2Server
+CMAKE_SOURCE_DIR = /home/tailuzhecom/下载/Talk2/Talk2Server
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/tailuzhecom/CLionProjects/Talk2Server/cmake-build-debug
+CMAKE_BINARY_DIR = /home/tailuzhecom/下载/Talk2/Talk2Server/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/tailuzhecom/CLionProjects/Talk2Server/cmake-build-debug/CMakeFiles /home/tailuzhecom/CLionProjects/Talk2Server/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/tailuzhecom/下载/Talk2/Talk2Server/cmake-build-debug/CMakeFiles /home/tailuzhecom/下载/Talk2/Talk2Server/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/tailuzhecom/CLionProjects/Talk2Server/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/tailuzhecom/下载/Talk2/Talk2Server/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -150,6 +150,33 @@ DB.cpp.s:
 	$(MAKE) -f CMakeFiles/Talk2Server.dir/build.make CMakeFiles/Talk2Server.dir/DB.cpp.s
 .PHONY : DB.cpp.s
 
+LoginSvr.o: LoginSvr.cpp.o
+
+.PHONY : LoginSvr.o
+
+# target to build an object file
+LoginSvr.cpp.o:
+	$(MAKE) -f CMakeFiles/Talk2Server.dir/build.make CMakeFiles/Talk2Server.dir/LoginSvr.cpp.o
+.PHONY : LoginSvr.cpp.o
+
+LoginSvr.i: LoginSvr.cpp.i
+
+.PHONY : LoginSvr.i
+
+# target to preprocess a source file
+LoginSvr.cpp.i:
+	$(MAKE) -f CMakeFiles/Talk2Server.dir/build.make CMakeFiles/Talk2Server.dir/LoginSvr.cpp.i
+.PHONY : LoginSvr.cpp.i
+
+LoginSvr.s: LoginSvr.cpp.s
+
+.PHONY : LoginSvr.s
+
+# target to generate assembly for a file
+LoginSvr.cpp.s:
+	$(MAKE) -f CMakeFiles/Talk2Server.dir/build.make CMakeFiles/Talk2Server.dir/LoginSvr.cpp.s
+.PHONY : LoginSvr.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -189,6 +216,9 @@ help:
 	@echo "... DB.o"
 	@echo "... DB.i"
 	@echo "... DB.s"
+	@echo "... LoginSvr.o"
+	@echo "... LoginSvr.i"
+	@echo "... LoginSvr.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

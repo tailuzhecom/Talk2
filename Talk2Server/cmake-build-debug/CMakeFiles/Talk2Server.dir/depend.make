@@ -4,7 +4,36 @@
 CMakeFiles/Talk2Server.dir/DB.cpp.o: ../DB.cpp
 CMakeFiles/Talk2Server.dir/DB.cpp.o: ../DB.h
 
+CMakeFiles/Talk2Server.dir/LoginSvr.cpp.o: ../DB.h
+CMakeFiles/Talk2Server.dir/LoginSvr.cpp.o: ../LoginSvr.cpp
+CMakeFiles/Talk2Server.dir/LoginSvr.cpp.o: ../LoginSvr.h
+CMakeFiles/Talk2Server.dir/LoginSvr.cpp.o: ../rapidjson/allocators.h
+CMakeFiles/Talk2Server.dir/LoginSvr.cpp.o: ../rapidjson/document.h
+CMakeFiles/Talk2Server.dir/LoginSvr.cpp.o: ../rapidjson/encodedstream.h
+CMakeFiles/Talk2Server.dir/LoginSvr.cpp.o: ../rapidjson/encodings.h
+CMakeFiles/Talk2Server.dir/LoginSvr.cpp.o: ../rapidjson/error/error.h
+CMakeFiles/Talk2Server.dir/LoginSvr.cpp.o: ../rapidjson/internal/biginteger.h
+CMakeFiles/Talk2Server.dir/LoginSvr.cpp.o: ../rapidjson/internal/diyfp.h
+CMakeFiles/Talk2Server.dir/LoginSvr.cpp.o: ../rapidjson/internal/dtoa.h
+CMakeFiles/Talk2Server.dir/LoginSvr.cpp.o: ../rapidjson/internal/ieee754.h
+CMakeFiles/Talk2Server.dir/LoginSvr.cpp.o: ../rapidjson/internal/itoa.h
+CMakeFiles/Talk2Server.dir/LoginSvr.cpp.o: ../rapidjson/internal/meta.h
+CMakeFiles/Talk2Server.dir/LoginSvr.cpp.o: ../rapidjson/internal/pow10.h
+CMakeFiles/Talk2Server.dir/LoginSvr.cpp.o: ../rapidjson/internal/stack.h
+CMakeFiles/Talk2Server.dir/LoginSvr.cpp.o: ../rapidjson/internal/strfunc.h
+CMakeFiles/Talk2Server.dir/LoginSvr.cpp.o: ../rapidjson/internal/strtod.h
+CMakeFiles/Talk2Server.dir/LoginSvr.cpp.o: ../rapidjson/internal/swap.h
+CMakeFiles/Talk2Server.dir/LoginSvr.cpp.o: ../rapidjson/memorystream.h
+CMakeFiles/Talk2Server.dir/LoginSvr.cpp.o: ../rapidjson/msinttypes/inttypes.h
+CMakeFiles/Talk2Server.dir/LoginSvr.cpp.o: ../rapidjson/msinttypes/stdint.h
+CMakeFiles/Talk2Server.dir/LoginSvr.cpp.o: ../rapidjson/rapidjson.h
+CMakeFiles/Talk2Server.dir/LoginSvr.cpp.o: ../rapidjson/reader.h
+CMakeFiles/Talk2Server.dir/LoginSvr.cpp.o: ../rapidjson/stream.h
+CMakeFiles/Talk2Server.dir/LoginSvr.cpp.o: ../rapidjson/stringbuffer.h
+CMakeFiles/Talk2Server.dir/LoginSvr.cpp.o: ../rapidjson/writer.h
+
 CMakeFiles/Talk2Server.dir/main.cpp.o: ../DB.h
+CMakeFiles/Talk2Server.dir/main.cpp.o: ../LoginSvr.h
 CMakeFiles/Talk2Server.dir/main.cpp.o: ../json.hpp
 CMakeFiles/Talk2Server.dir/main.cpp.o: ../main.cpp
 CMakeFiles/Talk2Server.dir/main.cpp.o: ../rapidjson/allocators.h

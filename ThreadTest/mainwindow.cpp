@@ -31,18 +31,38 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(m_loginDialog, SIGNAL(sendLoginMessage(QString,QString)), this, SLOT(loginDialog_slot(QString,QString)));
     m_socket->write(m_userName.toLatin1());
 
+    ui->listWidget->setWindowOpacity(0.7);
+
     QFile img(":/image/edittest.png");
     qDebug() << img.size() << endl;
-    ui->Content_textEdit->append("<img src=qrc:/image/edittest.png>");
-    ui->Content_textEdit->append("Hello");
     QTextImageFormat imageFormat;
     imageFormat.setName("qrc:/image/edittest.png");
-    QTextCursor cursor = ui->Content_textEdit->textCursor();
-    cursor.insertImage(imageFormat);
 
+
+    m_toolBar = new QToolBar;
+    m_toolBar->addAction(ui->actionFont);
+    m_toolBar->addAction(ui->emoj);
+    m_toolBar->addAction(ui->actionSend_pic);
+
+    ui->listWidget->setIconSize(QSize(100, 50));
+
+    //ui->verticalLayout_2->addChildLayout(ui->horizontalLayout_2);
+    QVBoxLayout* right_vertical_layout = new QVBoxLayout;
+    right_vertical_layout->addWidget(ui->textBrowser);
+    right_vertical_layout->addWidget(m_toolBar);
+    right_vertical_layout->addLayout(ui->horizontalLayout_2);
+
+    QHBoxLayout* main_layout = new QHBoxLayout;
+    main_layout->addWidget(ui->splitter);
+    main_layout->addLayout(right_vertical_layout);
     m_sendFileDialog = new SendFileDialog(this);
     m_sendFileDialog->setSocket(m_socket);
     m_sendFileDialog->hide();
+
+    ui->send_pushButton->setIcon(QIcon(":/image/talk_windows/send.png"));
+    ui->send_pushButton->setIconSize(QSize(50, 20));
+    ui->add_pushButton->setIcon(QIcon(":/image/talk_windows/add_friend.png"));
+    ui->delete_pushButton->setIcon(QIcon(":/image/talk_windows/delete_friend.png"));
 }
 
 void MainWindow::initDatabase()
@@ -130,8 +150,8 @@ void MainWindow::handleRead()
         m_chatRecord[from] =  content;
     }
     else if(type == "203") {   //Receive message from other clients
-        if(ui->to_lineEdit->text() == from)
-            ui->Content_textEdit->insertPlainText(content+"\n");
+//        if(m_toUser == from)
+//            ui->Content_textEdit->insertPlainText(content+"\n");
         m_chatRecord[from].append(content+"\n");
         //ui->Content_textEdit->setText(content);
         QSqlQuery sql_query;
@@ -152,7 +172,7 @@ void MainWindow::handleRead()
         qDebug() << "Start transfering file" << endl;
         m_sendFileDialog->send();
     }
-    else if(type == "205") {
+    else if(type == "205") {   //GetFriendsList
         if(obj.contains("FriendsList")) {
             QJsonValue value = obj.value("FriendsList");
             if(value.isArray()) {
@@ -161,6 +181,7 @@ void MainWindow::handleRead()
                 for(int i = 0; i < nSize; i++) {
                     QJsonValue nameValue = array.at(i);
                     QListWidgetItem* item = new QListWidgetItem;
+                    item->setIcon(QIcon(":/image/contacts_photo/normal.png"));
                     item->setText(nameValue.toString());
                     ui->listWidget->addItem(item);
                 }
@@ -170,6 +191,7 @@ void MainWindow::handleRead()
     else if(type == "206") {    //
         QMessageBox::information(this, "Message", "Add friend success!");
         QListWidgetItem* item = new QListWidgetItem;
+        item->setIcon(QIcon(":/image/contacts_photo/normal.png"));
         item->setText(content);
         ui->listWidget->addItem(item);
     }
@@ -185,7 +207,7 @@ void MainWindow::on_send_pushButton_clicked()
     QJsonObject obj;
     obj.insert("Type", "SendMessage");
     obj.insert("From", m_userName);
-    QString to = ui->to_lineEdit->text();
+    QString to = m_toUser;
     QString content = ui->message_lineEdit->text();
     obj.insert("To", to);
     obj.insert("Content", content);
@@ -212,8 +234,8 @@ void MainWindow::loginDialog_slot(QString userName, QString passwd)
 void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
 {
     QString talkName = item->text();
-    ui->Content_textEdit->clear();
-    ui->to_lineEdit->setText(talkName);
+//    ui->Content_textEdit->clear();
+    m_toUser = talkName;
     //Update SendFile json
     QJsonObject sendObj;
     sendObj.insert("Type", "SendFile");
@@ -234,8 +256,8 @@ void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
                 content += sql_query.value(0).toString() + "\n";
             }
             m_chatRecord[talkName] = content;
-            ui->Content_textEdit->setPlainText(content);
-            ui->Content_textEdit->moveCursor(QTextCursor::End);
+//            ui->Content_textEdit->setPlainText(content);
+//            ui->Content_textEdit->moveCursor(QTextCursor::End);
         }
         else {
             qDebug() << sql_query.lastError() << endl;
@@ -252,8 +274,8 @@ void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
         m_socket->write(jsonDoc.toJson());
     }
     else {    //Have inited the chat record
-        ui->Content_textEdit->setPlainText(m_chatRecord[talkName]);
-        ui->Content_textEdit->moveCursor(QTextCursor::End);
+//        ui->Content_textEdit->setPlainText(m_chatRecord[talkName]);
+//        ui->Content_textEdit->moveCursor(QTextCursor::End);
     }
 }
 
@@ -288,7 +310,6 @@ void MainWindow::on_delete_pushButton_clicked()
         doc.setObject(obj);
 
         ui->listWidget->takeItem(ui->listWidget->currentRow());
-        //ui->listWidget->update();
 
         m_socket->write(doc.toJson());
     }

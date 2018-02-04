@@ -8,6 +8,8 @@
 #include <QtSql/QSqlDatabase>
 #include <QSqlQuery>
 #include <QSqlError>
+#include <QHBoxLayout>
+#include <QToolBar>
 
 #include "logindialog.h"
 #include "sendfiledialog.h"
@@ -42,10 +44,12 @@ private:
     WorkThread* t1;
     QTcpSocket* m_socket;
     QString m_userName;
+    QString m_toUser;
     LoginDialog* m_loginDialog;
     QMap<QString, QString> m_chatRecord;
     QSqlDatabase database;
     SendFileDialog* m_sendFileDialog;
+    QToolBar* m_toolBar;
 };
 
 #endif // MAINWINDOW_H

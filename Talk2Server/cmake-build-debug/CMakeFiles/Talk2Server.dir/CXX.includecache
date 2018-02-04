@@ -6,21 +6,51 @@
 
 #IncludeRegexTransform: 
 
-/home/tailuzhecom/CLionProjects/Talk2Server/DB.cpp
+/home/tailuzhecom/下载/Talk2/Talk2Server/DB.cpp
 DB.h
-/home/tailuzhecom/CLionProjects/Talk2Server/DB.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/DB.h
 cstdio
 -
 iostream
 -
 
-/home/tailuzhecom/CLionProjects/Talk2Server/DB.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/DB.h
 mysql/mysql.h
 -
 string
 -
 
-/home/tailuzhecom/CLionProjects/Talk2Server/json.hpp
+/home/tailuzhecom/下载/Talk2/Talk2Server/LoginSvr.cpp
+iostream
+-
+LoginSvr.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/LoginSvr.h
+muduo/base/Logging.h
+-
+rapidjson/stringbuffer.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/stringbuffer.h
+rapidjson/document.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/document.h
+rapidjson/writer.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/writer.h
+
+/home/tailuzhecom/下载/Talk2/Talk2Server/LoginSvr.h
+muduo/net/EventLoop.h
+-
+muduo/net/InetAddress.h
+-
+muduo/net/TcpServer.h
+-
+string
+-
+vector
+-
+map
+-
+DB.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/DB.h
+
+/home/tailuzhecom/下载/Talk2/Talk2Server/json.hpp
 algorithm
 -
 cassert
@@ -280,7 +310,7 @@ utility
 utility
 -
 
-/home/tailuzhecom/CLionProjects/Talk2Server/main.cpp
+/home/tailuzhecom/下载/Talk2/Talk2Server/main.cpp
 iostream
 -
 sys/epoll.h
@@ -316,31 +346,35 @@ mysql/mysql.h
 map
 -
 json.hpp
-/home/tailuzhecom/CLionProjects/Talk2Server/json.hpp
+/home/tailuzhecom/下载/Talk2/Talk2Server/json.hpp
 rapidjson/document.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/document.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/document.h
 rapidjson/stringbuffer.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/stringbuffer.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/stringbuffer.h
 rapidjson/writer.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/writer.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/writer.h
 DB.h
-/home/tailuzhecom/CLionProjects/Talk2Server/DB.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/DB.h
+LoginSvr.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/LoginSvr.h
+muduo/net/EventLoop.h
+-
 
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/allocators.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/allocators.h
 rapidjson.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/rapidjson.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/rapidjson.h
 
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/document.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/document.h
 reader.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/reader.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/reader.h
 internal/meta.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/internal/meta.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/internal/meta.h
 internal/strfunc.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/internal/strfunc.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/internal/strfunc.h
 memorystream.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/memorystream.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/memorystream.h
 encodedstream.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/encodedstream.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/encodedstream.h
 new
 -
 limits
@@ -350,95 +384,95 @@ iterator
 utility
 -
 
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/encodedstream.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/encodedstream.h
 stream.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/stream.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/stream.h
 memorystream.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/memorystream.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/memorystream.h
 
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/encodings.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/encodings.h
 rapidjson.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/rapidjson.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/rapidjson.h
 
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/error/error.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/error/error.h
 ../rapidjson.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/rapidjson.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/rapidjson.h
 
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/internal/biginteger.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/internal/biginteger.h
 ../rapidjson.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/rapidjson.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/rapidjson.h
 intrin.h
 -
 
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/internal/diyfp.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/internal/diyfp.h
 ../rapidjson.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/rapidjson.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/rapidjson.h
 intrin.h
 -
 
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/internal/dtoa.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/internal/dtoa.h
 itoa.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/internal/itoa.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/internal/itoa.h
 diyfp.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/internal/diyfp.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/internal/diyfp.h
 ieee754.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/internal/ieee754.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/internal/ieee754.h
 
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/internal/ieee754.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/internal/ieee754.h
 ../rapidjson.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/rapidjson.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/rapidjson.h
 
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/internal/itoa.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/internal/itoa.h
 ../rapidjson.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/rapidjson.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/rapidjson.h
 
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/internal/meta.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/internal/meta.h
 ../rapidjson.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/rapidjson.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/rapidjson.h
 type_traits
 -
 
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/internal/pow10.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/internal/pow10.h
 ../rapidjson.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/rapidjson.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/rapidjson.h
 
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/internal/stack.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/internal/stack.h
 ../allocators.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/allocators.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/allocators.h
 swap.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/internal/swap.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/internal/swap.h
 
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/internal/strfunc.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/internal/strfunc.h
 ../stream.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/stream.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/stream.h
 cwchar
 -
 
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/internal/strtod.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/internal/strtod.h
 ieee754.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/internal/ieee754.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/internal/ieee754.h
 biginteger.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/internal/biginteger.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/internal/biginteger.h
 diyfp.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/internal/diyfp.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/internal/diyfp.h
 pow10.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/internal/pow10.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/internal/pow10.h
 
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/internal/swap.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/internal/swap.h
 ../rapidjson.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/rapidjson.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/rapidjson.h
 
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/memorystream.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/memorystream.h
 stream.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/stream.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/stream.h
 
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/msinttypes/inttypes.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/msinttypes/inttypes.h
 stdint.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/msinttypes/stdint.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/msinttypes/stdint.h
 inttypes.h
 -
 
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/msinttypes/stdint.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/msinttypes/stdint.h
 stdint.h
 -
 limits.h
@@ -446,19 +480,19 @@ limits.h
 wchar.h
 -
 
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/rapidjson.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/rapidjson.h
 cstdlib
 -
 cstring
 -
 rapidjson/...
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/rapidjson/...
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/rapidjson/...
 string
 -
 msinttypes/stdint.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/msinttypes/stdint.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/msinttypes/stdint.h
 msinttypes/inttypes.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/msinttypes/inttypes.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/msinttypes/inttypes.h
 stdint.h
 -
 inttypes.h
@@ -466,23 +500,23 @@ inttypes.h
 endian.h
 -
 rapidjson/...
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/rapidjson/...
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/rapidjson/...
 cassert
 -
 
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/reader.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/reader.h
 allocators.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/allocators.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/allocators.h
 stream.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/stream.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/stream.h
 encodedstream.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/encodedstream.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/encodedstream.h
 internal/meta.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/internal/meta.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/internal/meta.h
 internal/stack.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/internal/stack.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/internal/stack.h
 internal/strtod.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/internal/strtod.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/internal/strtod.h
 limits
 -
 intrin.h
@@ -496,43 +530,43 @@ arm_neon.h
 stdexcept
 -
 rapidjson/error/error.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/rapidjson/error/error.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/rapidjson/error/error.h
 rapidjson/reader.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/rapidjson/reader.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/rapidjson/reader.h
 error/error.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/error/error.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/error/error.h
 
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/stream.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/stream.h
 rapidjson.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/rapidjson.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/rapidjson.h
 encodings.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/encodings.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/encodings.h
 
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/stringbuffer.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/stringbuffer.h
 stream.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/stream.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/stream.h
 internal/stack.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/internal/stack.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/internal/stack.h
 utility
 -
 internal/stack.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/internal/stack.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/internal/stack.h
 
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/writer.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/writer.h
 stream.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/stream.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/stream.h
 internal/meta.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/internal/meta.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/internal/meta.h
 internal/stack.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/internal/stack.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/internal/stack.h
 internal/strfunc.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/internal/strfunc.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/internal/strfunc.h
 internal/dtoa.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/internal/dtoa.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/internal/dtoa.h
 internal/itoa.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/internal/itoa.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/internal/itoa.h
 stringbuffer.h
-/home/tailuzhecom/CLionProjects/Talk2Server/rapidjson/stringbuffer.h
+/home/tailuzhecom/下载/Talk2/Talk2Server/rapidjson/stringbuffer.h
 new
 -
 intrin.h

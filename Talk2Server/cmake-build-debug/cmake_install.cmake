@@ -1,4 +1,4 @@
-# Install script for directory: /home/tailuzhecom/CLionProjects/Talk2Server
+# Install script for directory: /home/tailuzhecom/下载/Talk2/Talk2Server
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/tailuzhecom/CLionProjects/Talk2Server/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/tailuzhecom/下载/Talk2/Talk2Server/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
